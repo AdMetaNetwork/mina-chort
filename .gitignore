@@ -1,0 +1,7 @@
+# node_modules
+/dapp/node_modules
+/evm-contract/node_modules
+/mina-contract/node_modules
+/extension/node_modules
+
+.idea
