@@ -133,13 +133,12 @@ export class UserScore extends SmartContract {
 
     const { state: userLevel, actionsHash: newCurrentUserScoreTreeAccumulator } = this.reducer.reduce(
       this.reducer.getActions({ fromActionHash: currentUserScoreTreeAccumulator }),
-      Field, // State type Field - number of votes on the given candidate
+      Field,
       (state: Field, action: ScoreLevel) => {
-        return Circuit.if(action.key.equals(key), action.level, Field(0)); // If the action key matches the given candidate, increase number of votes one time
+        return Circuit.if(action.key.equals(key), action.level, Field(0)); 
       },
       { state: Field(0), actionsHash: currentUserScoreTreeAccumulator }
     );
-    Circuit.log('userLevel--->>>', userLevel)
     return userLevel
 
   }
