@@ -17,9 +17,26 @@
         "<all_urls>"
       ],
       "js": [
-        "src/js/content-script.ts"
-      ]
+        "src/js/content-script.ts",
+        "src/js/inject-scripts.ts",
+        "src/js/providers.ts"
+      ],
+      "run_at": "document_start"
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/js/providers.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "permissions": [
     "storage",

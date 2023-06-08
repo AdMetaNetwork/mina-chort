@@ -125,20 +125,20 @@ const Dashboard: FC = () => {
 
 
             c.init().then(async () => {
-              const r = await c.getUserLevel()
-              const o = JSON.parse(r[3])
-              const s = JSON.parse(score)
-              Object.keys(o).map((key) => {
-                o[key] += s[key]
-              })
-              setScoreMap(o)
+                const r = await c.getUserLevel()
+                const o = JSON.parse(r[3])
+                const s = JSON.parse(score)
+                Object.keys(o).map((key) => {
+                  o[key] += s[key]
+                })
+                setScoreMap(o)
 
-              const level = BigNumber.from(U.H.calculationAllLevel(o)[0])
-              const allScore = BigNumber.from(U.H.calculationAllLevel(o)[1])
-              const categoryScore = JSON.stringify(o)
-              console.log(level, allScore, categoryScore)
-              c.setUserLevel(level, allScore, categoryScore).then()
-              localStorage.removeItem('sync_data')
+                const level = BigNumber.from(U.H.calculationAllLevel(o)[0])
+                const allScore = BigNumber.from(U.H.calculationAllLevel(o)[1])
+                const categoryScore = JSON.stringify(o)
+                console.log(level, allScore, categoryScore)
+                c.setUserLevel(level, allScore, categoryScore).then()
+                localStorage.removeItem('sync_data')
             })
           } }
         />
